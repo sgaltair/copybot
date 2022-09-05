@@ -15,6 +15,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 27017
-
 CMD [ "node", "./src/bot.js" ]

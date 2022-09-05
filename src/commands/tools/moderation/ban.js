@@ -17,7 +17,6 @@ module.exports = {
 		)
 		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 	async execute(interaction) {
-		// Your code goes here...
 		const user = interaction.options.getuser('target');
 		let reason = interaction.options.getString('reason');
 		const member = await interaction.guild.members

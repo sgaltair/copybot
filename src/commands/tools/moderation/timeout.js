@@ -36,7 +36,7 @@ module.exports = {
 			.catch(console.error);
 
 		await interaction.reply({
-			content: `Time out ${user.tag} succesfully!`,
+			content: `Timed out ${user.tag} succesfully!`,
 		});
 	},
 };

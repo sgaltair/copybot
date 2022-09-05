@@ -5,12 +5,17 @@ module.exports = (client) => {
 		const options = [
 			{
 				type: ActivityType.Watching,
-				text: 'something dirty',
+				text: 'scary movies',
+				status: 'online',
+			},
+			{
+				type: ActivityType.Watching,
+				text: 'the downfall of civilization',
 				status: 'online',
 			},
 			{
 				type: ActivityType.Listening,
-				text: 'you breathe',
+				text: 'to dictations 🤫💩😴',
 				status: 'idle',
 			},
 			{

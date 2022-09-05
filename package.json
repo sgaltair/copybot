@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sgaltair/ds14bot.git"
+    "url": "git+https://github.com/sgaltair/copybot.git"
   },
   "keywords": [],
   "author": "isame",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sgaltair/ds14bot/issues"
+    "url": "https://github.com/sgaltair/copybot/issues"
   },
-  "homepage": "https://github.com/sgaltair/ds14bot#readme",
+  "homepage": "https://github.com/sgaltair/copybot#readme",
   "dependencies": {
     "@discordjs/rest": "^1.1.0",
     "chalk": "^4.1.2",
