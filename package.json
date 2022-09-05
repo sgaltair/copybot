@@ -1,0 +1,32 @@
+{
+  "name": "copybot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgaltair/ds14bot.git"
+  },
+  "keywords": [],
+  "author": "isame",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgaltair/ds14bot/issues"
+  },
+  "homepage": "https://github.com/sgaltair/ds14bot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^1.1.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.5",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.2",
+    "mongoose": "^6.5.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "prettier-eslint": "^15.0.1"
+  }
+}
