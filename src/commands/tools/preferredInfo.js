@@ -5,9 +5,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('preferences')
-		.setDescription(
-			'Edits your preferences in our database (currently not visible to anyone outside management',
-		)
+		.setDescription('Edits your preferences in our database')
 		.addStringOption((option) =>
 			option
 				.setName('legalname')
@@ -27,26 +25,34 @@ module.exports = {
 		)
 		.addStringOption((option) =>
 			option
-				.setName('notes')
+				.setName('aboutme')
 				.setDescription(
 					'Any additional notes about yourself you\'d like us to know? Please keep it brief.',
+				),
+		)
+		.addStringOption((option) =>
+			option
+				.setName('fandoms')
+				.setDescription(
+					'Any fandoms you\'d like people to know you\'re apart of?',
 				),
 		),
 
 	async execute(interaction) {
-		const scribeDiscord =
-			`${interaction.member.user.username}#${interaction.member.user.discriminator}`;
+		const scribeDiscord = `${interaction.member.user.username}#${interaction.member.user.discriminator}`;
 		const legalName = interaction.options.getString('legalname');
 		const preferredName = interaction.options.getString('preferredname');
 		const preferredPronouns = interaction.options.getString('pronouns');
-		const notes = interaction.options.getString('notes');
+		const fandoms = interaction.options.getString('fandoms');
+		const aboutMe = interaction.options.getString('aboutme');
 		const filter = { scribeDiscord: `${scribeDiscord}` };
 		const update = {
 			scribe: `${scribeDiscord}`,
 			legalName: `${legalName}`,
 			preferredName: `${preferredName}`,
 			preferredPronouns: `${preferredPronouns}`,
-			notes: `${notes}`,
+			fandoms: `${fandoms}`,
+			aboutMe: `${aboutMe}`,
 		};
 		const scribeProfile = await Preference.findOneAndUpdate(filter, update, {
 			new: true,

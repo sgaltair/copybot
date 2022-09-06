@@ -5,7 +5,8 @@ const preferredSchema = new Schema({
 	legalName: String,
 	preferredName: String,
 	preferredPronouns: String,
-	notes: String,
+	fandoms: String,
+	aboutMe: String,
 });
 
 module.exports = model('Preference', preferredSchema, 'preferences');
