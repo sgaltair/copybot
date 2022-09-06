@@ -20,7 +20,7 @@ module.exports = {
 				name: 'Test',
 				permissions: [PermissionsBitField.Flags.KickMembers],
 			})
-			.catch(console.error);
+			.catch(new Date(), console.error);
 
 		// has role
 		if (roles.cache.has('1016088854836560043')) {
@@ -28,7 +28,7 @@ module.exports = {
 				fetchReply: true,
 			});
 
-			await roles.remove(role).catch(console.error);
+			await roles.remove(role).catch(new Date(), console.error);
 			await interaction.editReply({
 				content: `Removed ${role.name} from you`,
 			});
@@ -39,11 +39,11 @@ module.exports = {
 			});
 		}
 
-		await roles.add(testRole).catch(console.error);
+		await roles.add(testRole).catch(new Date(), console.error);
 
 		await testRole
 			.setPermissions([PermissionsBitField.Flags.BanMembers])
-			.catch(console.error);
+			.catch(new Date(), console.error);
 
 		const channel = await interaction.guild.channels.create({
 			name: 'test',
@@ -63,6 +63,6 @@ module.exports = {
 			.edit(testRole.id, {
 				SendMessages: false,
 			})
-			.catch(console.error);
+			.catch(new Date(), console.error);
 	},
 };

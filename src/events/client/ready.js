@@ -5,6 +5,6 @@ module.exports = {
 	once: true,
 	async execute(client) {
 		setInterval(client.pickPresence, 10 * 1000);
-		console.log(`${client.user.tag} has logged into Discord!`);
+		console.log(`${new Date()}: ${client.user.tag} has logged into Discord!`);
 	},
 };

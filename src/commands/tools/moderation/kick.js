@@ -21,11 +21,11 @@ module.exports = {
 		let reason = interaction.options.getString('reason');
 		const member = await interaction.guild.members
 			.fetch(user.id)
-			.catch(console.error);
+			.catch(new Date(), console.error);
 
 		if (!reason) reason = 'No reason provided.';
 
-		await member.kick(reason).catch(console.error);
+		await member.kick(reason).catch(new Date(), console.error);
 
 		await interaction.reply({
 			content: `Kicked ${user.tag} succesfully!`,

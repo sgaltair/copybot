@@ -15,9 +15,10 @@ module.exports = {
 		};
 		message
 			.awaitReactions({ filter, max: 4, time: 10000, errors: ['time'] })
-			.then((collected) => console.log(collected.size))
+			.then((collected) => console.log(new Date(), collected.size))
 			.catch((collected) => {
 				console.log(
+					new Date(),
 					`After 10 seconds, only ${collected.size} out of 4 reacted.`,
 				);
 			});

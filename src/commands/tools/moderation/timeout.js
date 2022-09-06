@@ -27,13 +27,13 @@ module.exports = {
 		let time = interaction.options.getInteger('time');
 		const member = await interaction.guild.members
 			.fetch(user.id)
-			.catch(console.error);
+			.catch(new Date(), console.error);
 
 		if (!reason) reason = 'No reason provided.';
 		if (!time) time = null;
 		await member
 			.timeout(time == null ? null : time * 60 * 1000, reason)
-			.catch(console.error);
+			.catch(new Date(), console.error);
 
 		await interaction.reply({
 			content: `Timed out ${user.tag} succesfully!`,

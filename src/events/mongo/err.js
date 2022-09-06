@@ -4,7 +4,7 @@ module.exports = {
 	name: 'err',
 	execute(err) {
 		console.log(
-			chalk.red(`An error occured with the database connection:\n${err}`),
+			chalk.red(`${new Date()}: An error occured with the database connection:\n${err}`),
 		);
 	},
 };

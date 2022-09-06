@@ -22,14 +22,14 @@ module.exports = {
 			await interaction.reply({
 				content: `Server Name: ${guildProfile.guildName}`,
 			});
-			console.log(guildProfile);
+			console.log(new Date(), guildProfile);
 		}
 		else {
-			await guildProfile.save().catch(console.error);
+			await guildProfile.save().catch(new Date(), console.error);
 			await interaction.reply({
 				content: `Server ID: ${guildProfile.guildId}`,
 			});
-			console.log(guildProfile);
+			console.log(new Date(), guildProfile);
 		}
 	},
 };

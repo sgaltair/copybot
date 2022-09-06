@@ -13,7 +13,7 @@ module.exports = {
 				await command.execute(interaction, client);
 			}
 			catch (error) {
-				console.error(error);
+				console.error(new Date(), error);
 				await interaction.reply({
 					content: 'Something went wrong while executing this command...',
 					ephemeral: true,
@@ -30,7 +30,7 @@ module.exports = {
 				await button.execute(interaction, client);
 			}
 			catch (err) {
-				console.Error(err);
+				console.Error(new Date(), err);
 			}
 		}
 		else if (interaction.isSelectMenu()) {
@@ -43,7 +43,7 @@ module.exports = {
 				await menu.execute(interaction, client);
 			}
 			catch (error) {
-				console.Error(error);
+				console.Error(new Date(), error);
 			}
 		}
 		else if (interaction.type == InteractionType.ModalSubmit) {
@@ -56,7 +56,7 @@ module.exports = {
 				await modal.execute(interaction, client);
 			}
 			catch (error) {
-				console.log(error);
+				console.log(new Date(), error);
 			}
 		}
 		else if (interaction.isContextMenuCommand()) {
@@ -69,7 +69,7 @@ module.exports = {
 				await contextCommand.execute(interaction, client);
 			}
 			catch (error) {
-				console.log(error);
+				console.log(new Date(), error);
 			}
 		}
 		else if (
@@ -84,7 +84,7 @@ module.exports = {
 				await command.autocomplete(interaction, client);
 			}
 			catch (error) {
-				console.error(error);
+				console.error(new Date(), error);
 			}
 		}
 	},

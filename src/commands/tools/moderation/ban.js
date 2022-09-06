@@ -21,7 +21,7 @@ module.exports = {
 		let reason = interaction.options.getString('reason');
 		const member = await interaction.guild.members
 			.fetch(user.id)
-			.catch(console.error);
+			.catch(new Date(), console.error);
 
 		if (!reason) reason = 'No reason provided.';
 
@@ -30,7 +30,7 @@ module.exports = {
 				deleteMessageDays: 1,
 				reason: reason,
 			})
-			.catch(console.error);
+			.catch(new Date(), console.error);
 		await interaction.reply({
 			content: `Banned ${user.tag} succesfully!`,
 		});
