@@ -9,7 +9,7 @@ module.exports = {
 	async execute(interaction) {
 		let guildProfile = await Guild.findOne({ guildId: interaction.guild.id });
 		if (!guildProfile) {
-			guildProfile = await new Guild({
+			guildProfile = new Guild({
 				_id: mongoose.Types.ObjectId(),
 				guildId: interaction.guild.id,
 				guildName: interaction.guild.name,
@@ -18,14 +18,13 @@ module.exports = {
 					: 'None.',
 			});
 
-			await guildProfile.save().catch(console.error);
+			await guildProfile.save().catch(new Date(), console.error);
 			await interaction.reply({
 				content: `Server Name: ${guildProfile.guildName}`,
 			});
 			console.log(new Date(), guildProfile);
 		}
 		else {
-			await guildProfile.save().catch(new Date(), console.error);
 			await interaction.reply({
 				content: `Server ID: ${guildProfile.guildId}`,
 			});
