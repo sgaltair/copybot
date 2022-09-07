@@ -1,5 +1,5 @@
 const Preference = require('../../schemas/preferredInfo');
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
 				.setDescription('The Discord user whose profile you\'d like to see')
 				.setRequired(true),
 		),
-	async execute(interaction) {
+	async execute(interaction, client) {
 		const user = interaction.options.getUser('target');
 		const scribeProfile = await Preference.findOne({
 			scribeDiscord: `${user.tag}`,
@@ -23,8 +23,15 @@ module.exports = {
 			});
 		}
 		else {
+			const embed = new EmbedBuilder()
+				.setTitle('Profile')
+				.setDescription(
+					`**Discord ID:** ${scribeProfile.scribeDiscord}\n**Preferred Name:** ${scribeProfile.preferredName}\n**Preferred Pronouns:** ${scribeProfile.preferredPronouns}\n**Fandoms:** ${scribeProfile.fandoms}\n**About Me:** ${scribeProfile.aboutMe}`,
+				)
+				.setColor(client.color)
+				.setThumbnail(user.displayAvatarURL());
 			await interaction.reply({
-				content: `**Discord ID:** ${scribeProfile.scribeDiscord}\n**Preferred Name:** ${scribeProfile.preferredName}\n**Preferred Pronouns:** ${scribeProfile.preferredPronouns}\n**Fandoms:** ${scribeProfile.fandoms}\n**About Me:** ${scribeProfile.aboutMe}`,
+				embeds: [embed],
 			});
 			console.log(new Date(), scribeProfile);
 		}

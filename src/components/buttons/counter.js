@@ -4,10 +4,7 @@ module.exports = {
 		name: 'counter',
 		currentCount: `${count}`,
 	},
-	async execute(interaction) {
-		count++,
-		await interaction.reply({
-			content: `${count}`,
-		});
+	async execute() {
+		count++;
 	},
 };
