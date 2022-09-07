@@ -1,4 +1,5 @@
 const { InteractionType } = require('discord.js');
+let count = require('../../components/buttons/counter.js').data.currentCount;
 
 module.exports = {
 	name: 'interactionCreate',
@@ -24,6 +25,10 @@ module.exports = {
 			const { buttons } = client;
 			const { customId } = interaction;
 			const button = buttons.get(customId);
+			if (interaction.customId == 'countstuff') {
+				count++;
+				await interaction.update({ content: `${count}` });
+			}
 			if (!button) return new Error('There is no code for this button');
 
 			try {
