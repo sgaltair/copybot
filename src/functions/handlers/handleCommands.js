@@ -22,7 +22,7 @@ module.exports = (client) => {
 		}
 
 		const clientId = '1016177799263948860';
-		const guildId = '
+		const guildId = '753701392639721522';
 		try {
 			console.log(`${new Date()}: Started refreshing application (/) commands.`);
 
