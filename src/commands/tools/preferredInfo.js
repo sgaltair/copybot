@@ -1,4 +1,3 @@
-// Port the database command to something that can be used for events. For now only worry about one document.
 const Preference = require('../../schemas/preferredInfo');
 const { SlashCommandBuilder } = require('discord.js');
 
@@ -9,14 +8,16 @@ module.exports = {
 		.addStringOption((option) =>
 			option
 				.setName('legalname')
-				.setDescription('The name we have for you on record')
+				.setDescription(
+					'The first name we have for you on record. This isn\'t visible to other employees, only management.',
+				)
 				.setRequired(true),
 		)
 		.addStringOption((option) =>
 			option
 				.setName('preferredname')
 				.setDescription(
-					'The name you prefer to go by (first, last, nickname, any combination',
+					'The name you prefer to go by (first, last, nickname, any combination)',
 				)
 				.setRequired(true),
 		)
@@ -46,14 +47,19 @@ module.exports = {
 		const fandoms = interaction.options.getString('fandoms');
 		const aboutMe = interaction.options.getString('aboutme');
 		const filter = { scribeDiscord: `${scribeDiscord}` };
-		const update = {
-			scribe: `${scribeDiscord}`,
-			legalName: `${legalName}`,
-			preferredName: `${preferredName}`,
-			preferredPronouns: `${preferredPronouns}`,
-			fandoms: `${fandoms}`,
-			aboutMe: `${aboutMe}`,
-		};
+		const update = {};
+		update['scribe'] = `${scribeDiscord}`;
+		update['legalName'] = `${legalName}`;
+		update['preferredName'] = `${preferredName}`;
+		if (preferredPronouns) {
+			update['preferredProunouns'] = `${preferredPronouns}`;
+		}
+		if (fandoms) {
+			update['fandoms'] = `${fandoms}`;
+		}
+		if (aboutMe) {
+			update['aboutMe'] = `${aboutMe}`;
+		}
 		const scribeProfile = await Preference.findOneAndUpdate(filter, update, {
 			new: true,
 			upsert: true,

@@ -1,7 +1,5 @@
-// Port the database command to something that can be used for events. For now only worry about one document.
 const Event = require('../../schemas/event');
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-// const mongoose = require('mongoose');
 
 module.exports = {
 	data: new SlashCommandBuilder()
