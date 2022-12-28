@@ -1,4 +1,3 @@
-// Port the database command to something that can be used for events. For now only worry about one document.
 const Event = require('../../schemas/event');
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
@@ -30,7 +29,7 @@ module.exports = {
 		const date = interaction.options.getString('date');
 		const time = interaction.options.getString('time');
 		const description = interaction.options.getString('description');
-		const filter = { evendId: '0' };
+		const filter = { eventId: '0' };
 		const update = {
 			eventName: `${name}`,
 			eventDate: `${date}`,
